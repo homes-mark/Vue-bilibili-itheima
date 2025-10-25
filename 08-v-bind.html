@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-show="index > 0" @click="index--">上一页</button>
+        <div>
+            <!-- 缩写 -->
+            <img :src="list[index]">
+        </div>
+        <button v-show="index < list.length - 1" @click="index++">下一页</button>
+    </div>
+
+    <!-- 引入的是开发版本包  包含完整的注释和警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                index: 0,
+                list: [
+                    './images/微信图片_20251004162904_1460_46.jpg',
+                    './images/微信图片_20251004162904_1461_46.jpg',
+                    './images/微信图片_20251004162906_1463_46.jpg'
+                ]     
+            }
+        })
+    </script>
+
+</body>
+</html>

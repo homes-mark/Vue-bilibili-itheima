@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="count--">-</button>
+        <span>{{ count }}</span>
+        <button @click="count++">+</button>
+        
+        <hr>
+
+        <button @click="fn">切换显示隐藏</button>
+        <h1 v-show="isShow">黑马程序员</h1>
+    </div>
+
+    <!-- 引入的是开发版本包  包含完整的注释和警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 100,
+                isShow: true
+            },
+            methods: {
+                fn() {
+                    // 让提供的所有 methods 中的方法，this都指向当前实例
+                    this.isShow = !this.isShow
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

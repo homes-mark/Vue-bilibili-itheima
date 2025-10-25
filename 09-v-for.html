@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in list">
+                {{ item }} - {{ index }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- 引入的是开发版本包  包含完整的注释和警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                list: ['苹果', '香蕉', '橘子', '葡萄', '西瓜']
+            }
+        })
+    </script>
+
+</body>
+</html>

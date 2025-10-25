@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 100px;
+            width: 200px;
+            margin-bottom: 5px;
+            text-align: center;
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-show="flag" class="box">我是v-show控制的盒子</div>
+        <div v-if="flag" class="box">我是v-if控制的盒子</div>
+    </div>
+
+    <!-- 引入的是开发版本包  包含完整的注释和警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            }
+        })
+    </script>
+
+</body>
+</html>

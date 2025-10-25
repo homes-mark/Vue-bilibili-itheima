@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 100px;
+            height: 50px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h3>v-model修饰符  .trim .number</h3>
+        <!-- .trim  去掉输入框的左右两边的空格 -->
+        姓名： <input type="text" v-model.trim="name">  <br>
+        <!-- .number  将输入的字符串转为数字 -->
+        年纪： <input type="text" v-model.number="age">
+        <hr>
+
+        <h3>@事件名.stop   ->    阻止冒泡</h3>
+        <div class="father" @click="fatherFn">
+            <!-- @click.stop  阻止冒泡 -->
+            <div class="son" @click.stop="sonFn">子组件</div>
+        </div>
+        <hr>
+
+        <h3>@事件名.prevent   ->   阻止默认行为</h3>
+        <a href="https://www.baidu.com" @click.prevent>阻止默认行为</a>
+    </div>
+
+    <!-- 引入的是开发版本包  包含完整的注释和警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                age: ''
+            },
+            methods: {
+                fatherFn() {
+                    console.log('父组件')
+                },
+                sonFn() {
+                    console.log('子组件')
+                }
+
+            }
+        })
+    </script>
+
+</body>
+</html>
