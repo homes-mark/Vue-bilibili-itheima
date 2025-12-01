@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <div>
+            <button @click="count--">-</button>
+            <span>{{ count }}</span>
+            <button @click="count++">+</button>
+        </div>
+    </div>
+
+    <!-- 引入的是开发版本包  包含完整的注释和警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                title: '计数器',
+            },
+            // 创建阶段（准备数据）
+            beforeCreate() {
+                console.log('beforeCreate 响应式数据准备好之前', this.count)
+            },
+            created() {
+                console.log('created 响应式数据准备好了之后', this.count)
+            },
+
+            // 挂载阶段（渲染模板）
+            beforeMount() {
+                console.log('beforeMount 模板开始渲染之前', document.querySelector('h1').innerHTML)
+            },
+            mounted() {
+                console.log('mounted 模板渲染完成之后', document.querySelector('h1').innerHTML)
+            },
+
+            // 更新阶段  --- 修改数据 ---> 更新视图
+            beforeUpdate() {
+                console.log('beforeUpdate 数据更新之前')
+            },
+            updated() {
+                console.log('updated 数据更新之后')
+            },
+
+            // 卸载阶段
+            beforeDestroy() {
+                console.log('beforeDestroy 组件销毁之前')
+                console.log('清除掉一些Vue以外的资源占用，定时器，延时器....')
+            },
+            destroyed() {  // app.$destroy()
+                console.log('destroyed 组件销毁之后')
+            },
+        })
+    </script>
+
+</body>
+</html>
